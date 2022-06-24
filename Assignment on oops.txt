@@ -1,0 +1,85 @@
+OOPS CONCEPT Assignment
+
+namespace LitwareLib
+{
+    class Employee
+    {
+        public int empno{get;set;}
+        public string empname{get;set}
+        public double salary{get;set}
+        public double HRA{get;set;}
+        public double TA{get;set;}
+        public double DA{get;set}
+        public double PF{get;set;}
+        public double TDS{get;set;}
+        public double NetSalary{get;set;}
+        public double GrossSalary{get;set;}
+            
+    }
+class Employee_Information{
+    static void Main(string[] args)
+    {
+        Employee emp=new employee();
+        Console.WriteLine("Enter Empno :");
+        emp.empno=int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Empname :");
+        emp.empname=int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Salary :");
+        emp.salary=double.Parse(Console.ReadLine());
+        double HRAY,TA,DA,GrossSalary;
+        if(emp.Salary<5000)
+        {
+            HRA=emp.Salary*10/100;
+            TA=emp.Salary*5/100;
+            DA=emp.Salary*15/100;
+            Console.WriteLine("HRA is {0},TA is{1} and DA is{2}",HRA,TA,DA);
+            GrossSalary = emp.Salary+HRA+TA+DA;
+            Console.WriteLine("GrossSalary:{0},GrossSalary");
+            double Result=CalculateSalary(GrossSalary);
+            Console.WriteLine("NetSalary={0}",Result);
+        }
+         if(emp.Salary<10000)
+        {
+            HRA=emp.Salary*10/100;
+            TA=emp.Salary*5/100;
+            DA=emp.Salary*15/100;
+            Console.WriteLine("HRA is {0},TA is{1},DA is{2}",HRA,TA,DA);
+            GrossSalary = emp.Salary+HRA+TA+DA;
+            Console.WriteLine("GrossSalary:{0},GrossSalary");
+            double Result=CalculateSalary(GrossSalary);
+            Console.WriteLine("NetSalary={0}",Result);
+        }
+         if(emp.Salary<15000)
+        {
+            HRA=emp.Salary*10/100;
+            TA=emp.Salary*5/100;
+            DA=emp.Salary*15/100;
+            Console.WriteLine("HRA is {0},TA is{1},DA is{2}",HRA,TA,DA);
+            GrossSalary = emp.Salary+HRA+TA+DA;
+            Console.WriteLine("GrossSalary:{0},GrossSalary");
+            double Result=CalculateSalary(GrossSalary);
+            Console.WriteLine("NetSalary={0}",Result);
+        }
+         if(emp.Salary<20000)
+        {
+            HRA=emp.Salary*10/100;
+            TA=emp.Salary*5/100;
+            DA=emp.Salary*15/100;
+            Console.WriteLine("HRA is {0},TA is{1},DA is{2}",HRA,TA,DA);
+            GrossSalary = emp.Salary+HRA+TA+DA;
+            Console.WriteLine("GrossSalary:{0},GrossSalary");
+            double Result=CalculateSalary(GrossSalary);
+            Console.WriteLine("NetSalary={0}",Result);
+        }
+  }
+  static double CalculateSalary(double GrossSalary)
+    {
+      double PF,TDS;
+      double NetSalary=0;
+      PF = GrossSalary* 10/100;
+      TDS=GrossSalary *18/100;
+      NetSalary =GrossSalary-(PF+TDS);
+      return NetSalary;
+     }
+  }   
+}
