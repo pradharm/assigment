@@ -83,3 +83,168 @@ class Employee_Information{
      }
   }   
 }
+------------------------------------------------------------------------------------
+Assignment no 3
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Assignment3
+{
+    public interface IPrintable
+    {
+        void DisplayDetails();
+    }
+    public abstract class Employee
+    {
+        public int EmployeeId { get; set; }
+        public string Name { get; set; }
+        public float Salary { get; set; }
+        public float GrossSalary { get; set; }
+
+        public abstract float CalculateSalary();
+
+    }
+    public class Manager : Employee, IPrintable
+    {
+        public override float CalculateSalary()
+        {
+            float PetrolAllowance = 0.08f * Salary;
+            float FoodAllowance = 0.13f * Salary;
+            float OtherAllowance = 0.03f * Salary;
+            GrossSalary = PetrolAllowance + FoodAllowance + OtherAllowance + Salary;
+            return GrossSalary;
+        }
+        public void DisplayDetails()
+        {
+            var NetSalary = CalculateSalary();
+            Console.WriteLine("Salary of Employee:" + NetSalary);
+        }
+    }
+    public class MarketingExecutive : Employee, IPrintable
+    {
+        public float Kilometer { get; set; }
+        public override float CalculateSalary()
+        {
+            float TourAllowance = 5 * Kilometer;
+            GrossSalary = TourAllowance + 1000 + Salary;
+            return GrossSalary;
+        }
+        public void DisplayDetails()
+        {
+            var NetSalary = CalculateSalary();
+            Console.WriteLine("Salary of Employee:" + NetSalary);
+        }
+
+    }
+}
+---------------------------------------------------------------------------------------------------------------
+using System;
+
+namespace Assignment3
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Manager manager = new Manager();
+            MarketingExecutive marketingExecutive = new MarketingExecutive();
+            Console.WriteLine("1 Manager");
+            Console.WriteLine("2 MarketingExecutive");
+            int ch = int.Parse(Console.ReadLine());
+            switch (ch)
+            {
+                case 1:
+                    Console.WriteLine("Enetr Employee ID");
+                    manager.EmployeeId = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Employee Name");
+                    manager.Name = Console.ReadLine();
+                    Console.WriteLine("Enter Salary");
+                    manager.Salary = float.Parse(Console.ReadLine());
+                    manager.DisplayDetails();
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr Employee ID");
+                    marketingExecutive.EmployeeId = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Name");
+                    marketingExecutive.Name = Console.ReadLine();
+                    Console.WriteLine("Enter Salary");
+                    marketingExecutive.Salary = float.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter Kilometers:");
+                    marketingExecutive.Kilometer = float.Parse(Console.ReadLine());
+                    marketingExecutive.DisplayDetails();
+                    break;
+            }
+        }
+    }
+
+}-----------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Assignment3
+{
+    class Program2
+    {
+        public static void Main(string[] args)
+        {
+            Stack<int> s = new Stack<int>();
+            s.Push(11);
+            s.Push(12);
+            s.Push(13);
+            s.Push(14);
+            s.Push(15);
+
+            foreach (int i in s)
+            {
+                Console.WriteLine("Push Element in Array:" + i + ",");
+            }
+            s.Pop();
+            s.Pop();
+            foreach (int i in s)
+            {
+                Console.WriteLine("After Pop ,Element in Array:" + i + ",");
+            }
+
+        }
+    }
+}
+------------------------------------------------------------------
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+
+namespace Assignment3
+{
+    public class Program3 : ICloneable
+    {
+        public int i;
+        public int j;
+
+        public Program3(int a, int b)
+        {
+            i = a;
+            j = b;
+        }
+
+        public new string ToString()
+        {
+            return "(" + i + "," + j + ")";
+        }
+
+        public virtual object Cloning()
+        {
+            return new Program3(i, j);
+        }
+        object ICloneable.Clone()
+        {
+            return Cloning();
+        }
+    }
+
+}
+
+
